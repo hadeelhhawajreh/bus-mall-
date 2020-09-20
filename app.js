@@ -53,7 +53,7 @@ function displayRandomImages() {
     rightImageIndex = Math.floor((Math.random() * products.length));
     do {
         centerImageIndex = Math.floor(Math.random() * products.length);
-    } while (leftImageIndex === rightImageIndex && rightImageIndex === centerImageIndex &&leftImageIndex ===centerImageIndex);
+    } while (leftImageIndex === rightImageIndex && rightImageIndex === centerImageIndex && leftImageIndex ===centerImageIndex);
 
     displayImages(leftImageIndex, rightImageIndex, centerImageIndex);
 }
