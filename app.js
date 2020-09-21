@@ -4,7 +4,8 @@ var rightSideImageElement = document.getElementById('right-img');
 var centerSideImageElement = document.getElementById('center-img');
 var leftSideImageElement = document.getElementById('left-img');
 var imgContainer = document.getElementById('img-container');
-//new 
+//current image clicked ...
+
 var left;
 var right;
 var center;
@@ -48,17 +49,25 @@ new ProductMall('wine-glass', 'img/wine-glass.jpg');
 function displayRandomImages() {
     var leftImageIndex;
     var rightImageIndex;
-    var centerImageIndex;    
+    var centerImageIndex;
     leftImageIndex = Math.floor((Math.random() * products.length));
-    rightImageIndex = Math.floor((Math.random() * products.length));
+
+
     do {
         centerImageIndex = Math.floor(Math.random() * products.length);
-    } while (leftImageIndex === rightImageIndex && rightImageIndex === centerImageIndex && leftImageIndex ===centerImageIndex);
+    } 
+    while (leftImageIndex === rightImageIndex);
+
+    do {
+        rightImageIndex = Math.floor((Math.random() * products.length));
+        leftImageIndex = Math.floor((Math.random() * products.length));
+    } while (leftImageIndex === centerImageIndex || rightImageIndex === centerImageIndex);
 
     displayImages(leftImageIndex, rightImageIndex, centerImageIndex);
 }
 
 function displayImages(leftIndex, rightIndex, centerIndex) {
+    // THE IMAGE IS PUT TO CALC TIME DISPLAY 
     left = products[leftIndex];
     right = products[rightIndex];
     center = products[centerIndex];
@@ -75,7 +84,7 @@ function displayImages(leftIndex, rightIndex, centerIndex) {
 
 displayRandomImages();
 imgContainer.addEventListener('click', eventFUN);
-
+// numer of votes 
 function eventFUN(event) {
     var clickedImage;
     if (event.target.id === 'left-img') {
@@ -96,15 +105,17 @@ function eventFUN(event) {
     if (totalClicks > 25) {
         imgContainer.removeEventListener('click', eventFUN);
         displayResults();
+        console.log(this.totalClicks);
     }
 }
 function displayResults() {
     var listItem;
     for (var i = 0; i < products.length; i++) {
         listItem = document.createElement('li');
-        // anana Slicer had 3 votes and was shown 5 times
-        listItem.textContent =  products[i].name + ' had  ' + '  votes  ' + products[i].votes +' and was showon '+ products[i].timesDisplayed+ ' in persentage   ' +(products[i].timesDisplayed/25) ;
+        // banana Slicer had 3 votes and was shown 5 times
+        listItem.textContent = products[i].name + ' had  ' + '  votes  ' + products[i].votes + ' and was showon ' + products[i].timesDisplayed + ' \"  in persentage   ' + (products[i].timesDisplayed / 25 + '\"');
         finalResult.appendChild(listItem);
     }
 }
 console.log(this.totalClicks);
+
