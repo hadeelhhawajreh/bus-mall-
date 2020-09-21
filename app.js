@@ -5,14 +5,18 @@ var centerSideImageElement = document.getElementById('center-img');
 var leftSideImageElement = document.getElementById('left-img');
 var imgContainer = document.getElementById('img-container');
 //current image clicked ...
-
+var testArray = [-1, -1, -1];
 var left;
 var right;
 var center;
 var totalClicks = 0;
 var finalResult = document.getElementById('finalResult');
-
-
+// var votesArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+// var shownArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+// var lables = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+var votesArr = [];
+var shownArr = [];
+var lable = [];
 
 //  a constructor functionName of the product (File path of image)
 
@@ -20,11 +24,11 @@ function ProductMall(name, link) {
     this.link = link;
     this.name = name;
     this.votes = 0;
-    this.timesDisplayed = 0;
+    this.displayed = 0;
     products.push(this);
+    lable.push(this.name);
 
 }
-
 new ProductMall('pag', 'img/bag.jpg');
 new ProductMall('banana', 'img/banana.jpg');
 new ProductMall('boots', 'img/boots.jpg');
@@ -50,18 +54,23 @@ function displayRandomImages() {
     var leftImageIndex;
     var rightImageIndex;
     var centerImageIndex;
-    leftImageIndex = Math.floor((Math.random() * products.length));
+    do {
+        leftImageIndex = Math.floor((Math.random() * products.length));//3
+    } while (leftImageIndex === testArray[0] || leftImageIndex === testArray[1] || leftImageIndex === testArray[2]);
+
+    do {
+        centerImageIndex = Math.floor(Math.random() * products.length);//5 
+    }
+    while (leftImageIndex === centerImageIndex || centerImageIndex === testArray[0] || centerImageIndex === testArray[1] || centerImageIndex === testArray[2]);// no duplicate image in the row
 
 
     do {
-        centerImageIndex = Math.floor(Math.random() * products.length);
-    } 
-    while (leftImageIndex === rightImageIndex);
-
-    do {
-        rightImageIndex = Math.floor((Math.random() * products.length));
-        leftImageIndex = Math.floor((Math.random() * products.length));
-    } while (leftImageIndex === centerImageIndex || rightImageIndex === centerImageIndex);
+        rightImageIndex = Math.floor((Math.random() * products.length));//7
+    } while (leftImageIndex === rightImageIndex || rightImageIndex === centerImageIndex || rightImageIndex === testArray[0] || rightImageIndex === testArray[1] || rightImageIndex === testArray[2]);
+    testArray = [];
+    testArray.push(leftImageIndex);
+    testArray.push(centerImageIndex);
+    testArray.push(rightImageIndex);
 
     displayImages(leftImageIndex, rightImageIndex, centerImageIndex);
 }
@@ -71,11 +80,9 @@ function displayImages(leftIndex, rightIndex, centerIndex) {
     left = products[leftIndex];
     right = products[rightIndex];
     center = products[centerIndex];
-    left.timesDisplayed++;
-    right.timesDisplayed++;
-    center.timesDisplayed++;
-
-
+    left.displayed++;
+    right.displayed++;
+    center.displayed++;
     leftSideImageElement.setAttribute('src', left.link);
     rightSideImageElement.setAttribute('src', right.link);
     centerSideImageElement.setAttribute('src', center.link);
@@ -83,8 +90,10 @@ function displayImages(leftIndex, rightIndex, centerIndex) {
 }
 
 displayRandomImages();
+// add listner to change it 
 imgContainer.addEventListener('click', eventFUN);
 // numer of votes 
+// change img+ chane votes and display 
 function eventFUN(event) {
     var clickedImage;
     if (event.target.id === 'left-img') {
@@ -102,20 +111,90 @@ function eventFUN(event) {
         totalClicks++;
     }
 
-    if (totalClicks > 25) {
+    if (totalClicks >= 25) {
         imgContainer.removeEventListener('click', eventFUN);
-        displayResults();
+        displayResults(); // to display 3 img with not clickable ...
         console.log(this.totalClicks);
     }
 }
+var chart;
 function displayResults() {
     var listItem;
     for (var i = 0; i < products.length; i++) {
         listItem = document.createElement('li');
         // banana Slicer had 3 votes and was shown 5 times
-        listItem.textContent = products[i].name + ' had  ' + '  votes  ' + products[i].votes + ' and was showon ' + products[i].timesDisplayed + ' \"  in persentage   ' + (products[i].timesDisplayed / 25 + '\"');
+        listItem.textContent = products[i].name + ' had  ' + '  votes  ' + products[i].votes + ' and was showon ' + products[i].displayed + ' \"  in persentage   ' + (products[i].displayed / 25 + '\"');
         finalResult.appendChild(listItem);
     }
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'bar',
+        // The data for our dataset
+        data: {
+            labels: lable,
+            datasets: [{
+                label: 'voted products',
+                backgroundColor: 'white',
+                borderColor: 'black',
+                data: votesArr
+
+            }, {
+                label: 'shown products',
+                backgroundColor: 'lightpink',
+                borderColor: 'white',
+                data: shownArr
+            }]
+
+        }
+    });
+
+
+    //     var votesArr=[];
+    // var shownArr=[];
+    // var lable=[];
+    // x-axis products        
+
+    for (var i = 0; i < products.length; i++) {
+        // lables[i] += products[i].name;
+        // console.log(lables[i]);
+        shownArr.push(products[i].displayed);
+    }
+
+
+    // y-axis  # votes  for 
+    for (var i = 0; i < products.length; i++) {
+        // votesArr[i] += products[i].votes;
+        // console.log(votesArr[i]);
+        votesArr.push(products[i].votes);
+
+    }
+    console.log(votesArr);
+    //shownArr
+    // y-axis s= display
+
+    // for (var i = 0; i < products.length; i++) {
+    //     // shownArr[i] += products[i].displayed;
+    //     // console.log(shownArr[i]);
+    //     label.
+
+    // }
+
+
+    // chart.config.data[0]. = lables;
+    // chart.config.data.datasets[0] = votesArr;
+    // chart.config.data.datasets[1].data = shownArr;
+
+
+
+
 }
+
+console.log("daaaata in chart ",);
+
 console.log(this.totalClicks);
 
+console.log('name of products ' + lable);
+console.log('shown arrrrrrrrrrrrrray' + shownArr);
+console.log(chart);

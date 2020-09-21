@@ -2,32 +2,37 @@
 *{
     box-sizing: border-box;
     color: black;
-    font-size: 30px;
-
+    font-size: 15px;
+    background: #CC95C0;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
 }
 
 #header-div
 {
-    border: 2px solid blue;
+    border: 2px solid white;
 
 }
 #main-div{
-    border: 2px solid blue;
+    border: 2px solid white;
     margin-top: 50px;
 
 
 }
 #footer-div
 {
-    margin-top: 5%;
-    border: 2px solid blue;
+    margin-top: 15%;
+    border: 2px solid white;
     height: 150px;
 
 }
 #headone{
     font-family: 'Merienda', cursive;
     margin-right: 10%;
-    margin-top: -70px;
+    margin-top: -90px;
+    font-size: 60px;
+    text-shadow: 10px 10px 5px white;
     margin-left:10% ;}
 
 #img-container{
@@ -35,9 +40,9 @@
     height: 200px;
     display: inline;
     float: right;
-    margin-top: -480px;
-    margin-right: 20px;
-    margin-left:20px ;
+    margin-top: -700px;
+    margin-right: 40px;
+    margin-left:15px ;
     display: flex;
     flex-wrap: wrap;
 }
@@ -49,7 +54,7 @@
     margin-right: 20px;
     margin-left: 20px;
     height: 200px;
-    border: 2px solid blue;
+    border: 2px solid white;
     /* box-sizing: border-box; */
 }
 #logo{  
@@ -65,12 +70,18 @@
 }
 section{
     margin-top: 10px;
-    height: 500px;
-    width: 250px
+    height: 720px;
+    width: 300px
 }
 #lorem{
-    margin-left: 330px;
+    margin-left: 480px;
     margin-bottom: 40px;
-margin-top: -240px;
-    margin-right: 40px;
+    margin-top: -450px;
+    margin-right: 50px;
+    font-size: 20px;
+
+}
+#canvasDiv{
+    margin-left: 450px;
+    margin-right: 100px;
 }
