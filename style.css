@@ -3,16 +3,18 @@
     box-sizing: border-box;
     color: black;
     font-size: 15px;
-    background: #CC95C0;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
+    /* background: #CC95C0;  /* fallback for old browsers */
+   /* background: -webkit-linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0);  /* Chrome 10-25, Safari 5.1-6 */
+   /* background: linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 #header-div
 {
     border: 2px solid white;
-
+    /* margin-left: 45px;
+    margin-right: 45px; */
+    height: 130px;
+    background-color: beige;
 }
 #main-div{
     border: 2px solid white;
@@ -20,27 +22,44 @@
 
 
 }
+/* li a{
+    font-size: 30px;
+    color: blue;
+margin-left: 300px;
+margin-top: 300px;
+}
+ul li{
+    list-style: none;
+    text-align: center;
+    display: inline;
+    
+} */
 #footer-div
 {
     margin-top: 15%;
-    border: 2px solid white;
     height: 150px;
+    background-color: beige;
 
+
+}
+#png{
+    margin-left: 250px;
+    margin-top: 20px;
 }
 #headone{
     font-family: 'Merienda', cursive;
     margin-right: 10%;
     margin-top: -90px;
     font-size: 60px;
-    text-shadow: 10px 10px 5px white;
-    margin-left:10% ;}
+    text-shadow: 10px 10px 5px lightgoldenrodyellow;
+    margin-left:15% ;}
 
 #img-container{
     border: 2px solid white;
     height: 200px;
     display: inline;
     float: right;
-    margin-top: -700px;
+    margin-top: 200px;
     margin-right: 40px;
     margin-left:15px ;
     display: flex;
@@ -48,8 +67,8 @@
 }
 .img{
     float: right;
-    height: 350px;
-    width: 350px;
+    height: 2000px;
+    width: 400px;
     padding: 20px;
     margin-right: 20px;
     margin-left: 20px;
@@ -68,7 +87,7 @@
     font-family: 'Merienda', cursive;
 
 }
-section{
+/* section{
     margin-top: 10px;
     height: 720px;
     width: 300px
@@ -76,12 +95,21 @@ section{
 #lorem{
     margin-left: 480px;
     margin-bottom: 40px;
-    margin-top: -450px;
+    margin-top: 450px;
     margin-right: 50px;
     font-size: 20px;
 
-}
+} */
 #canvasDiv{
-    margin-left: 450px;
+    margin-left: 400px;
     margin-right: 100px;
+    margin-top: 40px;
+}
+#img-hade{
+    margin-top: 90px;
+    text-align: center;
+    margin-left: 10%;
+    font-size: 40px;
+    font-family: 'Merienda', cursive;
+
 }

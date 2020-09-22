@@ -67,7 +67,10 @@ function displayRandomImages() {
     do {
         rightImageIndex = Math.floor((Math.random() * products.length));//7
     } while (leftImageIndex === rightImageIndex || rightImageIndex === centerImageIndex || rightImageIndex === testArray[0] || rightImageIndex === testArray[1] || rightImageIndex === testArray[2]);
-    testArray = [];
+    testArray=[];
+    // testArray.pop();
+    // testArray.pop();
+    // testArray.pop();
     testArray.push(leftImageIndex);
     testArray.push(centerImageIndex);
     testArray.push(rightImageIndex);
@@ -136,13 +139,13 @@ function displayResults() {
             labels: lable,
             datasets: [{
                 label: 'voted products',
-                backgroundColor: 'white',
+                backgroundColor: 'brown',
                 borderColor: 'black',
                 data: votesArr
 
             }, {
                 label: 'shown products',
-                backgroundColor: 'lightpink',
+                backgroundColor: 'beige',
                 borderColor: 'white',
                 data: shownArr
             }]
