@@ -28,7 +28,9 @@ function ProductMall(name, link) {
     products.push(this);
     lable.push(this.name);
 
+
 }
+
 new ProductMall('pag', 'img/bag.jpg');
 new ProductMall('banana', 'img/banana.jpg');
 new ProductMall('boots', 'img/boots.jpg');
@@ -49,7 +51,10 @@ new ProductMall('usb', 'img/usb.gif');
 new ProductMall('water-can', 'img/water-can.jpg');
 new ProductMall('wine-glass', 'img/wine-glass.jpg');
 
-
+if(localStorage.getItem('products')){
+    products=[];
+    products=JSON.parse(localStorage.getItem('products'));
+}
 function displayRandomImages() {
     var leftImageIndex;
     var rightImageIndex;
@@ -118,20 +123,14 @@ function eventFUN(event) {
         imgContainer.removeEventListener('click', eventFUN);
         displayResults(); // to display 3 img with not clickable ...
         console.log(this.totalClicks);
-    }
-}
-var chart;
-function displayResults() {
-    var listItem;
-    for (var i = 0; i < products.length; i++) {
-        listItem = document.createElement('li');
-        // banana Slicer had 3 votes and was shown 5 times
-        listItem.textContent = products[i].name + ' had  ' + '  votes  ' + products[i].votes + ' and was showon ' + products[i].displayed + ' \"  in persentage   ' + (products[i].displayed / 25 + '\"');
-        finalResult.appendChild(listItem);
+        localStorage.setItem('products',JSON.stringify(products));
+
     }
 
+}
+function chart(){
     var ctx = document.getElementById('myChart').getContext('2d');
-    chart = new Chart(ctx, {
+     var chart = new Chart(ctx, {
         // The type of chart we want to create
         type: 'bar',
         // The data for our dataset
@@ -151,7 +150,20 @@ function displayResults() {
             }]
 
         }
-    });
+        });
+}
+
+function displayResults() {
+
+    var listItem;
+    for (var i = 0; i < products.length; i++) {
+        listItem = document.createElement('li');
+        // banana Slicer had 3 votes and was shown 5 times
+        listItem.textContent = products[i].name + ' had  ' + '  votes  ' + products[i].votes + ' and was showon ' + products[i].displayed + ' \"  in persentage   ' + (products[i].displayed / 25 + '\"');
+        finalResult.appendChild(listItem);
+    }
+
+   
 
 
     //     var votesArr=[];
@@ -174,6 +186,7 @@ function displayResults() {
 
     }
     console.log(votesArr);
+    chart();
     //shownArr
     // y-axis s= display
 

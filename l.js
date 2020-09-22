@@ -1,5 +1,8 @@
 console.log(localStorage);
-localStorage.setItem('key','');
-localStorage.getItem('');
+localStorage.setItem('key','values');
+localStorage.getItem('key');
+JSON.parse(oobjJSON)
+JSON.stringify(oojJS)
 localStorage.clear();
-localStorage.removeItem('key',values);
+localStorage.removeItem('key');
+
