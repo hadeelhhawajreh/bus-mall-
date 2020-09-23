@@ -27,10 +27,11 @@ function ProductMall(name, link) {
     lable.push(this.name);
 }
 
-// if(localStorage.getItem('products')){
-//     products=[];
-//     products=JSON.parse(localStorage.getItem('p'));
-// } 
+if(localStorage.getItem('p')){
+    // products=[];
+    // products=JSON.parse(localStorage.getItem('products'));
+} 
+else{
 new ProductMall('pag', 'img/bag.jpg');
 new ProductMall('banana', 'img/banana.jpg');
 new ProductMall('boots', 'img/boots.jpg');
@@ -50,7 +51,7 @@ new ProductMall('unicorn', 'img/unicorn.jpg');
 new ProductMall('usb', 'img/usb.gif');
 new ProductMall('water-can', 'img/water-can.jpg');
 new ProductMall('wine-glass', 'img/wine-glass.jpg');
-
+}
 function displayRandomImages() {
     var leftImageIndex;
     var rightImageIndex;
@@ -119,7 +120,7 @@ function eventFUN(event) {
         imgContainer.removeEventListener('click', eventFUN);
         displayResults(); // to display 3 img with not clickable ...
         console.log(this.totalClicks);
-        localStorage.setItem('p',JSON.stringify(ProductMall));
+        localStorage.setItem('products',JSON.stringify(products));
 
     }
 
@@ -189,10 +190,4 @@ function displayResults() {
     // chart.config.data.datasets[1].data = shownArr;
 }
 
-console.log("daaaata in chart ",);
-
-console.log(this.totalClicks);
-
-console.log('name of products ' + lable);
-console.log('shown arrrrrrrrrrrrrray' + shownArr);
-console.log(chart);
+console.log(ProductMall);
