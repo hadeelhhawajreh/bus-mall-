@@ -22,18 +22,23 @@
 
 
 }
-/* li a{
+/* li {
     font-size: 30px;
     color: blue;
 margin-left: 300px;
 margin-top: 300px;
-}
+}*/
+
 ul li{
-    list-style: none;
-    text-align: center;
-    display: inline;
-    
-} */
+    list-style: symbols(star);
+    text-transform: capitalize;
+    text-align: left;
+    font-family: 'Merienda', cursive;
+    margin-left: 10px;
+font-size: 20px; 
+padding: 10px;
+line-height: 10px;
+} 
 #footer-div
 {
     margin-top: 15%;
@@ -43,8 +48,8 @@ ul li{
 
 }
 #png{
-    margin-left: 250px;
-    margin-top: 20px;
+    margin-left: 300px;
+    margin-top: 30px;
 }
 #headone{
     font-family: 'Merienda', cursive;
@@ -61,7 +66,7 @@ ul li{
     float: right;
     margin-top: 200px;
     margin-right: 40px;
-    margin-left:15px ;
+    margin-left:1px ;
     display: flex;
     flex-wrap: wrap;
 }
@@ -69,9 +74,9 @@ ul li{
     float: right;
     height: 2000px;
     width: 400px;
-    padding: 20px;
-    margin-right: 20px;
-    margin-left: 20px;
+    padding: 5px;
+    margin-right: 120px;
+    margin-left: 10px;
     height: 200px;
     border: 2px solid white;
     /* box-sizing: border-box; */
@@ -82,8 +87,9 @@ ul li{
 
 }
 #hfoot{
-    margin-top: 40px;
+    margin-bottom: 40px;
     text-align: center;
+    font-size: 50px;
     font-family: 'Merienda', cursive;
 
 }
@@ -101,15 +107,21 @@ ul li{
 
 } */
 #canvasDiv{
-    margin-left: 400px;
-    margin-right: 100px;
-    margin-top: 40px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 500px;
 }
 #img-hade{
+    text-transform: uppercase;
     margin-top: 90px;
     text-align: center;
-    margin-left: 10%;
-    font-size: 40px;
+    margin-left: 250px;
+    margin-right: 500px;
+    letter-spacing: 25px;
+    font-size: 70px;
     font-family: 'Merienda', cursive;
 
+}
+#finalResult{
+    
 }

@@ -17,9 +17,7 @@ var finalResult = document.getElementById('finalResult');
 var votesArr = [];
 var shownArr = [];
 var lable = [];
-
 //  a constructor functionName of the product (File path of image)
-
 function ProductMall(name, link) {
     this.link = link;
     this.name = name;
@@ -27,10 +25,12 @@ function ProductMall(name, link) {
     this.displayed = 0;
     products.push(this);
     lable.push(this.name);
-
-
 }
 
+// if(localStorage.getItem('products')){
+//     products=[];
+//     products=JSON.parse(localStorage.getItem('p'));
+// } 
 new ProductMall('pag', 'img/bag.jpg');
 new ProductMall('banana', 'img/banana.jpg');
 new ProductMall('boots', 'img/boots.jpg');
@@ -51,10 +51,6 @@ new ProductMall('usb', 'img/usb.gif');
 new ProductMall('water-can', 'img/water-can.jpg');
 new ProductMall('wine-glass', 'img/wine-glass.jpg');
 
-if(localStorage.getItem('products')){
-    products=[];
-    products=JSON.parse(localStorage.getItem('products'));
-}
 function displayRandomImages() {
     var leftImageIndex;
     var rightImageIndex;
@@ -123,7 +119,7 @@ function eventFUN(event) {
         imgContainer.removeEventListener('click', eventFUN);
         displayResults(); // to display 3 img with not clickable ...
         console.log(this.totalClicks);
-        localStorage.setItem('products',JSON.stringify(products));
+        localStorage.setItem('p',JSON.stringify(ProductMall));
 
     }
 
@@ -138,13 +134,13 @@ function chart(){
             labels: lable,
             datasets: [{
                 label: 'voted products',
-                backgroundColor: 'brown',
+                backgroundColor: 'darkgray',
                 borderColor: 'black',
                 data: votesArr
 
             }, {
                 label: 'shown products',
-                backgroundColor: 'beige',
+                backgroundColor: 'black',
                 borderColor: 'white',
                 data: shownArr
             }]
@@ -162,10 +158,6 @@ function displayResults() {
         listItem.textContent = products[i].name + ' had  ' + '  votes  ' + products[i].votes + ' and was showon ' + products[i].displayed + ' \"  in persentage   ' + (products[i].displayed / 25 + '\"');
         finalResult.appendChild(listItem);
     }
-
-   
-
-
     //     var votesArr=[];
     // var shownArr=[];
     // var lable=[];
@@ -176,14 +168,11 @@ function displayResults() {
         // console.log(lables[i]);
         shownArr.push(products[i].displayed);
     }
-
-
     // y-axis  # votes  for 
     for (var i = 0; i < products.length; i++) {
         // votesArr[i] += products[i].votes;
         // console.log(votesArr[i]);
         votesArr.push(products[i].votes);
-
     }
     console.log(votesArr);
     chart();
@@ -194,17 +183,10 @@ function displayResults() {
     //     // shownArr[i] += products[i].displayed;
     //     // console.log(shownArr[i]);
     //     label.
-
     // }
-
-
     // chart.config.data[0]. = lables;
     // chart.config.data.datasets[0] = votesArr;
     // chart.config.data.datasets[1].data = shownArr;
-
-
-
-
 }
 
 console.log("daaaata in chart ",);
