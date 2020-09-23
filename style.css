@@ -11,8 +11,6 @@
 #header-div
 {
     border: 2px solid white;
-    /* margin-left: 45px;
-    margin-right: 45px; */
     height: 130px;
     background-color: beige;
 }
@@ -22,12 +20,7 @@
 
 
 }
-/* li {
-    font-size: 30px;
-    color: blue;
-margin-left: 300px;
-margin-top: 300px;
-}*/
+
 
 ul li{
     list-style: symbols(star);
@@ -48,8 +41,8 @@ line-height: 10px;
 
 }
 #png{
-    height: 1000px;
-    width:1900px;
+    height: 500px;
+    width:1000px;
     margin-left: 150px;
     margin-top: 50px;
 }
@@ -63,19 +56,15 @@ line-height: 10px;
 
 #img-container{
     border: 2px solid white;
-    /* height: 200px; */
     display: inline;
     float: right;
     margin-top: 200px;
-    margin-right: 50px;
-    margin-left:5px ;
     display: flex;
     flex-wrap: wrap;
 }
 .img{
     float: right;
-    
-    padding: 15px;
+    padding: 10px;
     margin-right: 120px;
     margin-left: 10px;
     height: 200px;
@@ -94,19 +83,6 @@ line-height: 10px;
     font-family: 'Merienda', cursive;
 
 }
-/* section{
-    margin-top: 10px;
-    height: 720px;
-    width: 300px
-}
-#lorem{
-    margin-left: 480px;
-    margin-bottom: 40px;
-    margin-top: 450px;
-    margin-right: 50px;
-    font-size: 20px;
-
-} */
 #canvasDiv{
     margin-left: 50px;
     margin-right: 50px;
@@ -123,6 +99,7 @@ line-height: 10px;
     font-family: 'Merienda', cursive;
 
 }
-#finalResult{
-    
+#mainImg{
+    margin-left: 350px;
+    margin-right: 50px;
 }
