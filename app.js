@@ -27,11 +27,10 @@ function ProductMall(name, link) {
     lable.push(this.name);
 }
 
-if(localStorage.getItem('p')){
+if(localStorage.getItem('products')){
     // products=[];
-    // products=JSON.parse(localStorage.getItem('products'));
+    products=JSON.parse(localStorage.getItem('products'));
 } 
-else{
 new ProductMall('pag', 'img/bag.jpg');
 new ProductMall('banana', 'img/banana.jpg');
 new ProductMall('boots', 'img/boots.jpg');
@@ -51,7 +50,7 @@ new ProductMall('unicorn', 'img/unicorn.jpg');
 new ProductMall('usb', 'img/usb.gif');
 new ProductMall('water-can', 'img/water-can.jpg');
 new ProductMall('wine-glass', 'img/wine-glass.jpg');
-}
+
 function displayRandomImages() {
     var leftImageIndex;
     var rightImageIndex;
@@ -159,9 +158,7 @@ function displayResults() {
         listItem.textContent = products[i].name + ' had  ' + '  votes  ' + products[i].votes + ' and was showon ' + products[i].displayed + ' \"  in persentage   ' + (products[i].displayed / 25 + '\"');
         finalResult.appendChild(listItem);
     }
-    //     var votesArr=[];
-    // var shownArr=[];
-    // var lable=[];
+    
     // x-axis products        
 
     for (var i = 0; i < products.length; i++) {
@@ -179,15 +176,6 @@ function displayResults() {
     chart();
     //shownArr
     // y-axis s= display
-
-    // for (var i = 0; i < products.length; i++) {
-    //     // shownArr[i] += products[i].displayed;
-    //     // console.log(shownArr[i]);
-    //     label.
-    // }
-    // chart.config.data[0]. = lables;
-    // chart.config.data.datasets[0] = votesArr;
-    // chart.config.data.datasets[1].data = shownArr;
 }
 
 console.log(ProductMall);
