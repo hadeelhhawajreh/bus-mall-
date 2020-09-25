@@ -48,8 +48,10 @@ line-height: 10px;
 
 }
 #png{
-    margin-left: 300px;
-    margin-top: 30px;
+    height: 1000px;
+    width:1900px;
+    margin-left: 150px;
+    margin-top: 50px;
 }
 #headone{
     font-family: 'Merienda', cursive;
@@ -61,20 +63,19 @@ line-height: 10px;
 
 #img-container{
     border: 2px solid white;
-    height: 200px;
+    /* height: 200px; */
     display: inline;
     float: right;
     margin-top: 200px;
-    margin-right: 40px;
-    margin-left:1px ;
+    margin-right: 50px;
+    margin-left:5px ;
     display: flex;
     flex-wrap: wrap;
 }
 .img{
     float: right;
-    height: 2000px;
-    width: 400px;
-    padding: 5px;
+    
+    padding: 15px;
     margin-right: 120px;
     margin-left: 10px;
     height: 200px;
@@ -117,7 +118,7 @@ line-height: 10px;
     text-align: center;
     margin-left: 250px;
     margin-right: 500px;
-    letter-spacing: 25px;
+    letter-spacing: 30px;
     font-size: 70px;
     font-family: 'Merienda', cursive;
 
