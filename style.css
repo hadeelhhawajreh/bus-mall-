@@ -26,6 +26,7 @@ ul li{
     list-style: symbols(star);
     text-transform: capitalize;
     text-align: left;
+    margin-top: 50px;
     font-family: 'Merienda', cursive;
     margin-left: 10px;
 font-size: 20px; 
@@ -86,6 +87,7 @@ line-height: 10px;
 #canvasDiv{
     margin-left: 50px;
     margin-right: 50px;
+    width:900px;
     margin-top: 500px;
 }
 #img-hade{

@@ -27,10 +27,11 @@ function ProductMall(name, link) {
     lable.push(this.name);
 }
 
-if(localStorage.getItem('products')){
-    // products=[];
-    products=JSON.parse(localStorage.getItem('products'));
-} 
+// if(localStorage.getItem('products')){
+//     products=[];
+//     products=JSON.parse(localStorage.getItem('products'));
+// } 
+
 new ProductMall('pag', 'img/bag.jpg');
 new ProductMall('banana', 'img/banana.jpg');
 new ProductMall('boots', 'img/boots.jpg');
